@@ -1,0 +1,26 @@
+#GAteway class
+
+apiVersion: gateway.networking.k8s.io/v1
+kind: GatewayClass
+metadata:
+  name: fitness-gateway-class
+spec:
+  controllerName: gateway.envoyproxy.io/gatewayclass-controller
+
+---
+#GAteway
+
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: fitness-gateway
+  namespace: pavithra-ns
+spec:
+  gatewayClassName: fitness-gateway-class
+  listeners:
+    - name: http
+      protocol: HTTP
+      port: 80
+      allowedRoutes:
+        namespaces:
+          from: Same
