@@ -5,18 +5,12 @@ metadata:
   namespace: pavithra-ns
 spec:
   parentRefs:
-    - name: fitness-gateway
+  - name: fitness-gateway
   rules:
-    - matches:
-        - path:
-            type: PathPrefix
-            value: /
-      filters:
-        - type: URLRewrite
-          urlRewrite:
-            path:
-              type: ReplacePrefixMatch
-              replacePrefixMatch: / 
-      backendRefs:
-        - name: fitness-tracker-app  
-          port: 80               
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /
+    backendRefs:
+    - name: fitness-tracker-service
+      port: 80
