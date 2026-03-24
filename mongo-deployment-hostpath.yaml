@@ -38,7 +38,7 @@ spec:
           hostPath: 
             path: /UST
             type: DirectoryOrCreate
-            sizeLimit: "512Mi"
+            #sizeLimit: "512Mi"
 ---
 apiVersion: v1
 kind: Service
