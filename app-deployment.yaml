@@ -5,6 +5,11 @@ metadata:
   namespace: pavithra-ns
 spec:
   replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavilable: 1
+      maxSurge: 1
   selector:
     matchLabels:
       app: fitness-tracker-app
@@ -24,6 +29,13 @@ spec:
             - containerPort: 5000
           # ✔ All configMap vars removed
           # ✔ Direct env variables added
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "200Mi"
+            request:
+              memory: "256Mi"
+              cpu: "100Mi"
           envFrom:
             - configMapRef:
                 name: fitness-configmap
