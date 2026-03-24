@@ -35,7 +35,9 @@ spec:
             mountPath: /data/db
       volumes:
         - name: fitness-volume
-          emptyDir: 
+          hostPath: 
+            path: /UST
+            type: DirectoryOrCreate
             sizeLimit: "512Mi"
 ---
 apiVersion: v1
