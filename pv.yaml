@@ -7,7 +7,7 @@ spec:
     storage: 10Gi
   accessModes:
     - ReadWriteMany
-  persistentVolumeRecliamPolicy: Retain
+  persistentVolumeReclaimPolicy: Retain
   nfs:
     path: /var/nfs/general
     server: 10.0.2.222
