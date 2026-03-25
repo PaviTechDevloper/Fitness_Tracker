@@ -5,9 +5,9 @@ metadata:
 spec:
   capacity:
     storage: 10Gi
-    accessModes:
-      - ReadWriteMany
-    persistentVolumeRecliamPolicy: Retain
-    nfs:
-      path: /var/nfs/general
-      server: 10.0.2.222
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeRecliamPolicy: Retain
+  nfs:
+    path: /var/nfs/general
+    server: 10.0.2.222
