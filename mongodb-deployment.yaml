@@ -18,6 +18,8 @@ spec:
       labels:
         app: mongodb
     spec:
+      nodeSelector:
+        training: devops
       containers:
       - name: mongodb       
         image: mongo:7-jammy
