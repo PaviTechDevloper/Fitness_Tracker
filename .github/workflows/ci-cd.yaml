@@ -33,6 +33,7 @@ jobs:
     - name: Build Docker Image
       run: |
         docker build -t ${{ secrets.DOCKER_USERNAME }}/fitness-tracker:latest .
+      exit-code: 0
 
     - name: Push Docker Image
       run: |
