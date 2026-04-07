@@ -34,7 +34,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build Docker Image
-      run: docker build -t ${{ secrets.DOCKER_USERNAME }}/fitness-tracker:latest .
+      run: docker build -t "${{ secrets.DOCKER_USERNAME }}"/fitness-tracker:latest .
 
     - name: Push Docker Image
       run: docker push ${{ secrets.DOCKER_USERNAME }}/fitness-tracker:latest
