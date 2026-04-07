@@ -38,3 +38,11 @@ jobs:
 
     - name: Push Docker Image
       run: docker push ${{ secrets.DOCKER_USERNAME }}/fitness-tracker:latest
+
+    - name: Trivy install
+      run: |
+        sudo apt update 
+        sudo apt install trivy -y
+    
+    - name: Trivy scan
+      run: trivy image --severity HIGH,CRITICAL ${{ secrets.DOCKER_USERNAME }}/fitness-tracker:latest
