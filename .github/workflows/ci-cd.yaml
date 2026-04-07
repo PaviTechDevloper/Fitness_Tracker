@@ -36,9 +36,6 @@ jobs:
     - name: Build Docker Image
       run: docker build -t "${{ secrets.DOCKER_USERNAME }}"/fitness-tracker:latest .
 
-    - name: Push Docker Image
-      run: docker push ${{ secrets.DOCKER_USERNAME }}/fitness-tracker:latest
-
     - name: Trivy install
       run: |
         sudo apt update 
@@ -46,3 +43,6 @@ jobs:
     
     - name: Trivy scan
       run: trivy image --severity HIGH,CRITICAL ${{ secrets.DOCKER_USERNAME }}/fitness-tracker:latest
+
+    - name: Push Docker Image
+    run: docker push ${{ secrets.DOCKER_USERNAME }}/fitness-tracker:latest
